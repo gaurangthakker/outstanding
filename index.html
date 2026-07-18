@@ -463,6 +463,20 @@
         document.getElementById('billingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const editRowIndex = document.getElementById('editRowIndex').value;
+        // ===== PASSWORD START =====
+            const ENTRY_PASSWORD = "94976";
+        
+            const enteredPassword = prompt("🔒 Data Submit karne ke liye Password Enter karein:");
+        
+            if (enteredPassword === null) {
+                return;
+            }
+        
+            if (enteredPassword !== ENTRY_PASSWORD) {
+                alert("❌ Wrong Password! Data Save nahi hua.");
+                return;
+            }
+        // ===== PASSWORD END =====
             
             // केवल आवश्यक फ़ील्ड ही भेजें, आख़री 3 कॉलम्स को पूरी तरह छोड़ दें
             const formData = {
