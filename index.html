@@ -387,7 +387,7 @@
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWK07qRGdTuurjOBGfWtbA1HCR2bEz_qPZee8WOyV6OH8kfOu1VIiIqCwy6Vo3Xw8K/exec";
         const SECRET_PASS = "94976";
 
-        let defaultCharges = ["DEBIT OUTSTANDING (ADMITTED)", "DEBIT OUTSTANDING (DISPUTTED)", "FREIGHT OUTSTANDING / MPA", "WHARFAGE CHARGES", "DEMMURAGE CHARGES", "SHUNTING CHARGES", "STABLING CHARGES", "PUNNATIVE CHARGES", "DETENTION CHARGES", "OTHER CHARGS", "UNDER CHARGES"];
+        let defaultCharges = ["DEBIT OUTSTANDING (ADMITTED)", "DEBIT OUTSTANDING (DISPUTTED)", "FREIGHT OUTSTANDING / MPA", "WHARFAGE CHARGES", "DEMMURAGE CHARGES", "SHUNTING CHARGES", "STABLING CHARGES", "PUNNATIVE CHARGES", "DETENTION CHARGES", "OTHER CHARGES", "UNDER CHARGES"];
         let defaultCustomers = [{code: "IFFC", name: "INDIAN FARMERS FERTILISER COOPERATIVE LTD."}, {code: "FCI", name: "FOOD CORPORATION OF INDIA LTD."}, {code: "GSFC", name: "GUJARAT STATE FERTILIZER CO."}, {code: "DLI", name: "DISTRIBUTION LOGISTICS INFRASTRUCTURE PVT. LTD"}, {code: "KRIB", name: "KRISHAK BHARATI COOPERATIVE LIMITED"}, {code: "MCDS", name: "MALCHAND DINDAYAL SALTS PVT. LTD."}, {code: "JK", name: "J K CEMENT LTD."}];
 
         let chargeList = JSON.parse(localStorage.getItem('chargeList')) || defaultCharges;
@@ -631,7 +631,7 @@
                 let chargeSummary = {}; chargeList.forEach(c => { chargeSummary[c] = 0; });
 
                 data.forEach(row => {
-                    let charge = row.typeOfCharges || "OTHER CHARGS";
+                    let charge = row.typeOfCharges || "OTHER CHARGES";
                     let osVal = row.osAmount ? parseFloat(row.osAmount) : 0;
                     if (isNaN(osVal) || osVal <= 0) return;
                     chargeSummary[charge] = (chargeSummary[charge] || 0) + osVal;
